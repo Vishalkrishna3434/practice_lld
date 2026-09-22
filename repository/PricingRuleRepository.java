@@ -6,38 +6,42 @@ import domain.PricingRule;
 import domain.VehicleType;
 
 public class PricingRuleRepository {
-  private Map<UUID,PricingRule> rules =new ConcurrentHashMap<>();
-  private Map<VehicleType,UUID> VehicleTypeToRule = new ConcurrentHashMap<>();   
-   
-  public PricingRule save(PricingRule rule){
-    rules.put(rule.getId(),rule);
-    VehicleTypeToRule.put(rule.getVehicleType(),rule.getId());
+  private Map<UUID, PricingRule> rules = new ConcurrentHashMap<>();
+  private Map<VehicleType, UUID> VehicleTypeToRule = new ConcurrentHashMap<>();
+
+  public PricingRule save(PricingRule rule) {
+    rules.put(rule.getId(), rule);
+    VehicleTypeToRule.put(rule.getVehicleType(), rule.getId());
     return rule;
   }
-  
-  public Optional<PricingRule> findByID(UUID ruleID){
+
+  public Optional<PricingRule> findByID(UUID ruleID) {
     return Optional.ofNullable(rules.get(ruleID));
   }
- 
-  public Optional<PricingRule> findByVehicle(VehicleType vehicleType){
-    UUID ruleID= VehicleTypeToRule.get(vehicleType);
-    return ruleID!= null ? Optional.ofNullable(rules.get(ruleID)) : Optional.empty();
+
+  public Optional<PricingRule> findByVehicle(VehicleType vehicleType) {
+    UUID ruleID = VehicleTypeToRule.get(vehicleType);
+    return ruleID != null ? Optional.ofNullable(rules.get(ruleID)) : Optional.empty();
   }
- 
-  public List<PricingRule> findAll(){
+
+  public List<PricingRule> findAll() {
     return new ArrayList<>(rules.values());
   }
 
-  public void update(PricingRule rule){
-    if(rules.containsKey(rule.getId())){
-      rules.put(rule.getId(),rule);
-      VehicleTypeToRule.put(rule.getVehicleType(),rule.getId());
+  public void update(PricingRule rule) {
+    if (rules.containsKey(rule.getId())) {
+      rules.put(rule.getId(), rule);
+      VehicleTypeToRule.put(rule.getVehicleType(), rule.getId());
     }
   }
- 
-  public void 
 
-  public void clear(){
+  public void delete(UUID ruleID) {
+    PricingRule rule = rules.remove(ruleID);
+    if (rule != null)
+      VehicleTypeToRule.remove(rule.getVehicleType());
+  }
+
+  public void clear() {
     rules.clear();
     VehicleTypeToRule.clear();
   }
