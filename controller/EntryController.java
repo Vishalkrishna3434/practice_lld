@@ -1,6 +1,7 @@
 package controller;
 
 import domain.Ticket;
+import domain.Vehicle;
 import domain.VehicleType;
 import service.SlotService;
 import service.TicketService;
