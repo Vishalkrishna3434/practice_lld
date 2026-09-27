@@ -19,11 +19,11 @@ public class PricingRule {
         this.ratePerHour = ratePerHour;
         this.flatRate = flatRate;
     }
-    
+
     public void updateFlatRate(double flatRate) {
         this.flatRate = flatRate;
     }
-    
+
     public void updateHourlyRate(double ratePerHour) {
         this.ratePerHour = ratePerHour;
     }
@@ -54,4 +54,4 @@ public class PricingRule {
                 ", flatRate=" + flatRate +
                 '}';
     }
-} 
+}

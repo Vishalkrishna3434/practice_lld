@@ -53,4 +53,4 @@ public class Ticket {
                 ", isActive=" + isActive +
                 '}';
     }
-} 
+}

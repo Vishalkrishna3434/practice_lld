@@ -7,7 +7,6 @@ public class Vehicle {
     private String licensePlate;
     private VehicleType vehicleType;
 
-
     public Vehicle(String licensePlate, VehicleType vehicleType) {
         this.id = UUID.randomUUID();
         this.licensePlate = licensePlate;
@@ -35,4 +34,4 @@ public class Vehicle {
                 ", vehicleType=" + vehicleType +
                 '}';
     }
-} 
+}
