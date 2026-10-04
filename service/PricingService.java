@@ -3,6 +3,7 @@ package service;
 import domain.PricingRule;
 import domain.Ticket;
 import domain.Vehicle;
+import domain.VehicleType;
 import repository.PricingRuleRepository;
 import java.util.Optional;
 
@@ -18,7 +19,7 @@ public class PricingService {
 
     VehicleType vehicleType = VehicleType.CAR; // Default
 
-    Optional<PricingRule> rule = pricingRuleRepository.findByVehicleType(vehicleType);
+    Optional<PricingRule> rule = pricingRuleRepository.findByVehicle(vehicleType);
     if (rule.isEmpty()) {
       throw new IllegalStateException("No pricing rule found for vehicle type: " + vehicleType);
     }

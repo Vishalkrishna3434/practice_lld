@@ -38,7 +38,7 @@ public class PaymentService {
     return success;
   }
 
-  public boolean proccessPaymentWithRetry(UUID ticketId, double amount, int maxRetries) {
+  public boolean processPaymentWithRetry(UUID ticketId, double amount, int maxRetries) {
     System.out.println("[SERVICE] Processing payment with retry for ticket: " + ticketId);
 
     for (int attempt = 1; attempt <= maxRetries; attempt++) {

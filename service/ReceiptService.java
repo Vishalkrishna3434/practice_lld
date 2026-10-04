@@ -1,6 +1,6 @@
 package service;
 
-import domain.ticket;
+import domain.Ticket;
 import domain.Receipt;
 import domain.Ticket;
 
