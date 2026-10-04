@@ -59,7 +59,7 @@ public class Main {
 
                 pricingService.addPricingRule(new PricingRule(VehicleType.BIKE,50.0,25.0));
 
-                pricingService.addPricingRule(new PricingRul(VehicleType.TRUCK,200.0,100.0));
+                pricingService.addPricingRule(new PricingRule(VehicleType.TRUCK,200.0,100.0));
 
                 System.out.println("[MAIN] Pricing rules initialized");
 
